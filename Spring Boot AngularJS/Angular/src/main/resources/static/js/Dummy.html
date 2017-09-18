@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="Dummy.js"></script>
+
+<body>
+
+    <div ng-app="App" ng-controller="Ctrl">
+
+        Date:<input type="text" ng-model="Note.date" />
+        Notes:<input type="text" ng-model="Note.notes" />
+        <input type="button" ng-click="add()" ng-disabled="saving" autofocus value="add" ng-show="Add" />
+        <input type="button" ng-click="update()" value="update" ng-show="Update" />
+
+        <table>
+            <tr ng-repeat="x in users">
+                <td>{{x.date}}</td>
+                <td>{{x.notes}}</td>
+                <td><input type="button" ng-click="edit($index)" value="edit" /></td>
+                <td><input type="button" ng-click="delete($index)" value="delete" /></td>
+            </tr>
+        </table>
+
+    </div>
+
+</body>
+
+</html>

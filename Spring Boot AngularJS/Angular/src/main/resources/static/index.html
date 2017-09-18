@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang = "en" >
+	<head>
+		<meta charset  = "UTF-8"  name = "viewport" content = "width=device-width, initial-scale=1"/>
+		<title>Sourcecodester</title>
+		<link rel = "stylesheet" type = "text/css" href = "css/bootstrap.css" />
+	</head>
+<body ng-controller = "myController" ng-app="myModule">
+	<nav class = "navbar navbar-default">
+		<div class = "containet-fluid">
+			<a class = "navbar-brand" href = "https://www.sourcecodester.com" >Sourcecodester</a>
+		</div>
+	</nav>
+	<div class = "row">
+		<div class = "col-md-2">
+			
+		</div>
+
+		<div class = "col-md-8 well">
+			<h3 class = "text-primary">Simple CRUD Operation Using AngularJS</h3>
+			<hr style = "border-top:1px dotted #000;"/>
+			<div class = "alert alert-info">Notes
+				<button class = "btn btn-sm btn-primary pull-right" data-toggle="modal" data-target="#add_note">
+					<span class = "glyphicon glyphicon-plus"></span></button></div>
+			<div class = "container-fluid">
+				<br />
+				<br />
+				<table class = "table table-bordered alert-warning">
+					<thead>
+						<tr>
+							<th>Member ID</th>
+							<th>Date</th>
+							<th>Notes</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat = "note in notess">
+							<td>{{$index+1}}</td>
+							<td>{{note.date}}</td>
+							<td>{{note.notes}}</td>
+							<td><button type = "button" class = "btn btn-sm btn-warning" data-toggle="modal" data-target="#edit_note"  ng-click="editNote($index)" ><span class = "glyphicon glyphicon-edit"></span> Update</button> |
+							 <button type = "button" class = "btn btn-sm btn-danger"  ng-click="deleteNote($index+1)"><span class = "glyphicon glyphicon-trash"></span> Delete</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>	
+	<div class="modal fade" id="add_note" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<form>
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title text-info" id="myModalLabel">Note Registration</h4>
+			</div>
+			<div class="modal-body">	
+					<div class = "form-group">
+						<label>Date</label>
+						<input type = "text" class = "form-control" ng-model = "newNote.date"  />
+					</div>
+					<div class = "form-group">
+						<label>Notes</label>
+						<input type = "text" class = "form-control" ng-model = "newNote.notes"  />
+					</div>
+			</div>
+			<div class="modal-footer">
+				<button  class="btn btn-primary" ng-click = "saveNote()" data-dismiss = "modal"><span class = "glyphicon glyphicon-save"></span> Save</button>
+			</div>
+			</form>
+		</div>
+	</div>
+	</div>
+
+
+
+
+	<div class="modal fade" id="edit_note" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<form>
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title text-info" id="myModalLabel1">Note Registration</h4>
+			</div>
+			<div class="modal-body">	
+					<div class = "form-group">
+						<label>Date</label>
+						<input type = "text" class = "form-control" ng-model="newNote.date" />
+						<span ng-bind="date1"></span>
+					</div>
+					<div class = "form-group">
+						<label>Notes</label>
+						<input type = "text" class = "form-control"  ng-model="newNote.notes"/>
+					</div>
+			</div>
+			<div class="modal-footer">
+				<button  class="btn btn-primary" ng-click = "saveUpdate()" data-dismiss = "modal"><span class = "glyphicon glyphicon-save"></span> Save changes</button>
+			</div>
+			</form>
+		</div>
+	</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+<script src="js\angular.js"></script>
+<script src = "app.js"></script>
+<script src="Controller.js"></script>
+<script src="Service.js"></script>
+<script src  = "js/jquery-3.1.1.js"></script>	
+<script src  = "js/bootstrap.js"></script>	
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-resource.min.js"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>-->
+</html>
