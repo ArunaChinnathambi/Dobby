@@ -1,0 +1,13 @@
+<div style="text-align:center">
+
+    <h1>Number:{{counter}}</h1>
+
+    <label for="name" class="col-sm-2 control-label">Counter : </label>
+
+    <input (keyup)="input()" value={{counter}}/>
+
+    <button (click)="increment()">Increase</button>
+
+    <button (click)="decrement()">Decrease</button>
+
+</div>
