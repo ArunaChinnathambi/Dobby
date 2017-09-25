@@ -45,13 +45,13 @@ expect(newValue).toBeLessThan(intialValue);
 it('should display the counter number on screen,after being incremented by one', () => {
  component.increment(); 
  fixture.detectChanges(); 
- expect(htmlElement.textContent).toEqual('Number: 1'); 
+ expect(htmlElement.textContent).toEqual('Number:2'); 
  }); 
  
  it('should display the counter number on screen,after being decremented by one', () => { 
  component.decrement(); 
  fixture.detectChanges(); 
- expect(htmlElement.textContent).toEqual('Number: 1'); 
+ expect(htmlElement.textContent).toEqual('Number:0'); 
 }); 
 
 });
