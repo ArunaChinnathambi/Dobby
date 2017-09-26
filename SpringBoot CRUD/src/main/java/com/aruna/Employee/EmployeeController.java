@@ -18,7 +18,6 @@ public class EmployeeController {
  @Autowired
   private EmployeeRepository repo;
 
- // @RequestMapping( value="/show",method = RequestMethod.GET)
   @GetMapping("/show")
   public List<Employee> findItems() {
     return repo.findAll();

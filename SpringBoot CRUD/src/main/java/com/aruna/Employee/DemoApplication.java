@@ -3,7 +3,6 @@ import javax.persistance.*;
 import java.util.Properties;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
-//import org.h2.server.web.WebServlet;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.beans.factory.annotation.Autowired;
