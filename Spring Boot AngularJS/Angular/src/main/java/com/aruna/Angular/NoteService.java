@@ -5,7 +5,6 @@ import com.aruna.Angular.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 @Service("noteService")
 public class NoteService implements NoteServiceInterface {
 
