@@ -13,8 +13,7 @@ public class NoteApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(NoteApplication.class, args);
-		// System.out.println("Aruna");
-		}
+			}
 	@Bean
 	public ServletRegistrationBean h2servletRegistration() {
 		ServletRegistrationBean registration = new ServletRegistrationBean(new WebServlet());
