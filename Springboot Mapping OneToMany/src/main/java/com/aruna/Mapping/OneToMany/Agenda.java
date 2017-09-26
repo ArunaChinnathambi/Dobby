@@ -19,7 +19,7 @@ private Event event;
 
 public Agenda() {
 super();
-// TODO Auto-generated constructor stub
+
 }
 
 public Agenda(String aTime, String a_desc, String a_ins) {
