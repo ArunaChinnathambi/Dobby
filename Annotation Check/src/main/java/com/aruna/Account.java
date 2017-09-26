@@ -7,17 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * @author Baraneetharan R
- *
- */
 @Entity
 @Table
 public class Account implements Serializable {
 
- /**
- * 
- */
 private static final long serialVersionUID = 1L;
 @Id
 @GeneratedValue

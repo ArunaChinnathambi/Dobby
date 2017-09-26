@@ -11,10 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.aruna.AccountRepository;
-/**
- * @author Baraneetharan R
- *
- */
+
 @RestController
 public class AccountController {
 
