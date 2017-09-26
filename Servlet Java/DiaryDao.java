@@ -22,7 +22,6 @@ public class DiaryDao {
             ps.setString(2,d.getTime());  
             ps.setString(3,d.getData());  
          
-              
             status=ps.executeUpdate();  
               
             con.close();  
