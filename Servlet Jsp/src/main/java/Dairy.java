@@ -3,8 +3,6 @@
       
     private String date,time,data;
     
- 
-   
     public String getDate() {  
         return date;  
     }  
