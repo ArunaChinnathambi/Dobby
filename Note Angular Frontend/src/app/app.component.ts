@@ -1,9 +1,7 @@
-
-import { Component,OnInit } from '@angular/core';
-import {FormBuilder,FormGroup,FormControl} from '@angular/forms'
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms'
 import { Note } from './note';
 import { NoteService } from './note.service';
-
 
 @Component({
   selector: 'app-root',
@@ -16,14 +14,14 @@ export class AppComponent implements OnInit {
   myForm: any;
   reg: Note;
   model = new Note();
-  chgid:number;
+  chgid: number;
 
   constructor(public noteService: NoteService) { }
 
   ngOnInit() {
     this.getNote();
-}
-getNote() {
+  }
+  getNote() {
     this.noteService.getAll()
       .subscribe(reg => {
         this.reg = reg;
@@ -31,22 +29,22 @@ getNote() {
   }
 
   addNote() {
-    if (!this.model.id){
-    this.noteService.save(this.model)
-      .subscribe(reg => {
-        this.model = reg;
-        this.getNote();
-        this.clearModel();
-      });
+    if (!this.model.id) {
+      this.noteService.save(this.model)
+        .subscribe(reg => {
+          this.model = reg;
+          this.getNote();
+          this.clearModel();
+        });
     }
     else {
       console.log('editNote ' + this.model.id);
-       this.noteService.update(this.model.id,this.model)
-      .subscribe(reg => {
-        this.model = reg;
-        this.getNote();
-        this.clearModel();
-      });
+      this.noteService.update(this.model.id, this.model)
+        .subscribe(reg => {
+          this.model = reg;
+          this.getNote();
+          this.clearModel();
+        });
     }
   }
 
@@ -57,19 +55,19 @@ getNote() {
       });
   }
 
-  editNote(id){
+  editNote(id) {
     console.log('updateNote ' + id);
     this.noteService.find(id)
-        .subscribe(regs=>{
-          this.model = regs;
-        });
+      .subscribe(regs => {
+        this.model = regs;
+      });
   }
 
-clearModel(){
- this.model.id=0;
- this.model.date="";
-this.model.notes="";
- 
-}
+  clearModel() {
+    this.model.id = 0;
+    this.model.date = "";
+    this.model.notes = "";
+
+  }
 
 }
