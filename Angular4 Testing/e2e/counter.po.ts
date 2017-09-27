@@ -10,10 +10,10 @@ export class CounterCompPage {
       }
     
       getIncrementButton() {
-        return element(by.cssContainingText('button', 'increment'));
+        return element(by.cssContainingText('button', 'Increase'));
       }
     
       getDecrementButton() {
-        return element(by.cssContainingText('button', 'decrement'));
+        return element(by.cssContainingText('button', 'Decrease'));
       }
     }
