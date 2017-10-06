@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { Note } from './note';
 import 'rxjs/add/operator/map' ;
 
 @Injectable()
 export class NoteService {
+
+  notess: Note[] = [];
 
   constructor( private http:Http) { }
   getAll(){
