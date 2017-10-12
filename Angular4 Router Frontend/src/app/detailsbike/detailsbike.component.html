@@ -1,0 +1,7 @@
+<h3>BikeDetails</h3>
+<ul>
+  <li *ngFor="let bike of bikes" [class.selected]="bike === bikeselected" (click)="onSelect(bike)">
+  <h4>{{bike.id}} - {{bike.model}} {{bike.manufacturer}}</h4> 
+</li>
+</ul>
+<app-bikedelete [bike]="bikeselected"></app-bikedelete>

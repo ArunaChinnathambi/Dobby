@@ -1,0 +1,14 @@
+<div *ngIf="bike">
+	<h2>{{bike.id}} Details:</h2>
+	<div>
+		<label>id: </label> {{bike.id}}
+	</div>
+	<div>
+		<label>Model: </label> {{bike.model}}
+	</div>
+	<div>
+		<label>Manufacturer: </label> {{bike.manufacturer}}
+	</div>
+	
+	<button class="btn btn-danger" (click)="deleteB()">Delete</button>
+</div>
