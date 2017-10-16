@@ -1,0 +1,92 @@
+<!--{{allBookCategories | json}}-->
+
+<div class="container">
+    
+   <!--{{books | json}}-->
+<!--<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyjM_MzyQpr5ox35fm_o49klFR8qhh3eSFMOWbTk6WBVtdqxZsNQ" class="img-rounded" alt="Cinque Terre" width="1100" height="300">-->
+    <h1> Book-Category Details</h1>
+
+    <div class="jumbotron" >
+           
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="margin-20">
+                    <h4>Add Book Category</h4>
+                </div>
+                <!--<form [formGroup]="myForm"  class="form-horizontal" (ngSubmit)="save()">-->
+                <form [formGroup]="myForm"  (submit)="tobeupdated > 0 ? update() : save() ">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" formControlName="name">
+                        <small *ngIf="!myForm.controls.name.valid" class="text-danger">
+                                 Book Category is required (minimum 5 characters).
+                         </small>
+                    </div>
+                    <!--books-->
+                    <div formArrayName="book">
+                        <div *ngFor="let book of myForm.controls.book.controls; let i=index" class="panel panel-default">
+                            <div class="panel-heading">
+                                <span>Book {{i + 1}}</span>
+                                <span class="glyphicon glyphicon-remove pull-right" *ngIf="myForm.controls.book.controls.length > 1" (click)="removeBook(i)"></span>
+                            </div>
+                            <div class="panel-body" [formGroupName]="i">
+                                <div class="form-group col-xs-6">
+                                    <label>Book Name</label>
+                                    <input type="text" class="form-control" formControlName="bookname">
+                                    <small [hidden]="myForm.controls.book.controls[i].controls.bookname.valid" class="text-danger">
+Book Name is required
+</small>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="margin-20">
+                        <a (click)="addBook()" style="cursor: default">
+Add another book +
+</a>
+                    </div>
+
+                    <div class="margin-20">
+
+
+                        <!--<button type="submit" class="btn btn-success pull-left" [disabled]="!myForm.valid">Submit</button>
+                        <button type="button" class="btn btn-warning pull-right" (click)="update()">Update</button>-->
+                        <input type="submit" class="btn btn-success pull-left" [disabled]="!myForm.valid" value="{{tobeupdated> 0 ? 'update' : 'submit' }}" />
+
+                    </div>
+                    <div class="clearfix"></div>
+
+                   <!--<div class="margin-20">
+                        <div>myForm details:-</div>
+                        <pre>Is myForm valid?: <br>{{myForm.valid | json}}</pre>
+                        <pre>form value: <br>{{myForm.value | json}}</pre>
+                    </div>-->
+                </form>
+            </div>
+        </div>
+    </div>
+    <div>
+        </div>
+        <br>
+         <div class="table-responsive" >      
+     
+        <table class="table">
+            <tbody>
+                <tr class="warning">
+                    <th width="150"> Id</th><th width="150">Title</th><th width="150">Category</th></tr>
+                    <tr  class="success" *ngFor="let bookCategory of allBookCategories">
+                        <td>{{bookCategory.bookcatId}}</td>
+                        <td>{{bookCategory.name}}</td>
+
+                        <td><button type="button" class="btn btn-info pull-left btn-lg" (click)="editBookCategory(bookCategory.bookcatId)">Edit</button>
+                            <button type="button" class="btn btn-warning pull-right btn-lg" (click)="deleteBookCategory(bookCategory.bookcatId)">Delete</button></td>
+                    </tr>
+            </tbody>
+        </table>
+    
+    </div>
+ 
+    </div>
